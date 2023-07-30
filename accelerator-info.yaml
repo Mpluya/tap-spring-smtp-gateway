@@ -1,0 +1,24 @@
+id: 21ddd40d-a958-4044-b014-ffd8727a4e54
+timestamp: 2023-07-30T14:56:42Z
+username: mpluya
+source: TAP-GUI
+accelerator:
+  name: spring-smtp-gateway
+  source:
+    image: registry.harbor.learn.tapsme.org/tap/tap-packages@sha256:ef8439013890b774759df7c323bf2642ac325f01efc501bee7e7daee20817412
+fragments:
+  - name: build-wrapper-maven
+    source:
+      image: registry.harbor.learn.tapsme.org/tap/tap-packages@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+  - name: tap-workload
+    source:
+      image: registry.harbor.learn.tapsme.org/tap/tap-packages@sha256:d9c7d8d322f0740666ba7c752a9174d1eb66274338c4f0e211edb1d448104c2a
+options:
+  bsGitBranch: main
+  bsGitRepository: github.com?owner=Mpluya&repo=tap-spring-smtp-gateway
+  containerPort: 1026
+  includeBuildToolWrapper: true
+  msgbrokerName: msgbroker-spring-smtp-gateway
+  projectName: spring-smtp-gateway
+  servicePort: 25
+  workloadNamespace: workloads
